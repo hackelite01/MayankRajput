@@ -58,20 +58,20 @@ const socials = [
   {
     id: 2,
     title: "Email",
-    url: "mailto:mayankrajput2110@gmail.com",
+    url: "mayankrajput2110@gmail.com",
     tab: 3,
   },
   {
     id: 3,
     title: "Telegram",
     url: "https://t.me/nonrootedinsaan",
-    tab: 3,
+    tab: 2,
   },
   {
     id: 4,
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/mayankrajput2110/",
-    tab: 0,
+    tab: 2,
   },
   
 ];
