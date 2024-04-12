@@ -53,13 +53,13 @@ const socials = [
     id: 1,
     title: "GitHub",
     url: "https://github.com/hackelite01",
-    tab: 3,
+    tab: 4,
   },
   {
     id: 2,
     title: "Email",
     url: "mayankrajput2110@gmail.com",
-    tab: 3,
+    tab: 4,
   },
   {
     id: 3,
