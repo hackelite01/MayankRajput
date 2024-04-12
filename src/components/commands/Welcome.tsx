@@ -8,7 +8,6 @@ import {
   PreWrapper,
   Seperator,
 } from "../styles/Welcome.styled";
-import { jsx as _jsx } from 'react/jsx-runtime';
 
 const Welcome: React.FC = () => {
   return (
