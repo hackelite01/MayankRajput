@@ -19,6 +19,8 @@ const About: React.FC = () => {
         Ethical Hacking. Also have a keen interest in <br />
         Badminton playing & poetry writing.
       </p>
+      <p>
+      I've been honored in the NASA Hall of Fame, Unilever Hall of Fame, and Lucid Motors Hall of Fame.</p>
     </AboutWrapper>
   );
 };
