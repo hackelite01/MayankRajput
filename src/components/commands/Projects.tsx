@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
 
   /* ===== check arg is valid ===== */
   const checkArg = () =>
-    isArgInvalid(arg, "go", ["1", "2", "3", "4"]) ? (
+    isArgInvalid(arg, "go", ["1", "2", "3", "4", "5", "6", "7", "8"]) ? (
       <Usage cmd="projects" />
     ) : null;
 
