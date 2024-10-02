@@ -1,4 +1,5 @@
 import About from "./commands/About";
+import Achievements from "./commands/Achievements";
 import Clear from "./commands/Clear";
 import Echo from "./commands/Echo";
 import Education from "./commands/Education";
@@ -36,11 +37,12 @@ const Output: React.FC<Props> = ({ index, cmd }) => {
       {
         {
           about: <About />,
+          achievements: <Achievements />,
           clear: <Clear />,
           echo: <Echo />,
           education: <Education />,
-          experience: <Experience />,
           email: <Email />,
+          experience: <Experience />,
           gui: <Gui />,
           help: <Help />,
           history: <History />,
