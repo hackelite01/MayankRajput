@@ -14,6 +14,5 @@ export const AchItem = styled.li`
   margin-bottom: 10px;
   .title {
     font-weight: bold;
-    color: #2c3e50;
   }
 `;
