@@ -101,6 +101,38 @@ const theme: Themes = {
       },
     },
   },
+  dracula: {
+    id: "T_007",
+    name: "dracula",
+    colors: {
+      body: "#282A36",
+      scrollHandle: "#44475A",
+      scrollHandleHover: "#565872",
+      primary: "#BD93F9",
+      secondary: "#FF79C6",
+      text: {
+        100: "#F8F8F2",
+        200: "#BCC0D0",
+        300: "#6272A4",
+      },
+    },
+  },
+  cyberpunk: {
+    id: "T_008",
+    name: "cyberpunk",
+    colors: {
+      body: "#0D0221",
+      scrollHandle: "#241734",
+      scrollHandleHover: "#34204D",
+      primary: "#00F0FF",
+      secondary: "#FF007C",
+      text: {
+        100: "#F5F5F5",
+        200: "#B8B8D0",
+        300: "#7A5CFF",
+      },
+    },
+  },
 };
 
 export default theme;

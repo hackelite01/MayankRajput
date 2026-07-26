@@ -21,7 +21,13 @@ const achBg = [
     title: "The Maverick Effect AI Challenge'24 Finalists (Top 19 out of 170 teams)"
   },
   {
-    title: "Zonal Finalist, Eureka 2023-2024, E-Cell IITB"
+    title: "Zonal Finalist, Eureka 2023-2024, E-Cell IIT Bombay"
+  },
+  {
+    title: "E-Summit Finalist, E-Cell IIT Bombay (2023-2024 & 2024-2025)"
+  },
+  {
+    title: "TryHackMe Top 3%"
   },
   {
     title: "NASA Hall of Fame"
@@ -33,10 +39,22 @@ const achBg = [
     title: "Lucid Motors Hall of Fame"
   },
   {
-    title: "GeekForGeeks Top 1 Inst. Level"
+    title: "OYO Hall of Fame"
   },
   {
-    title: "TryHackMe top 6%"
+    title: "Kroger Hall of Fame"
+  },
+  {
+    title: "Dreamscape Hall of Fame"
+  },
+  {
+    title: "Cengage Hall of Fame"
+  },
+  {
+    title: "Genius Hall of Fame"
+  },
+  {
+    title: "GeekForGeeks Top 1 Institute Level"
   }
 ];
 

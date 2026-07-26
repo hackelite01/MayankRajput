@@ -52,8 +52,8 @@ export const checkRedirect = (
   currentCommand[0] === command && // current command starts with ('socials'|'projects')
   currentCommand[1] === "go" && // first arg is 'go'
   currentCommand.length > 1 && // current command has arg
-  currentCommand.length < 8 && // if num of arg is valid (not `projects go 1 sth`)
-  _.includes([1, 2, 3, 4, 5, 6, 7, 8], parseInt(currentCommand[2])); // arg last part is one of id
+  currentCommand.length < 4 && // if num of arg is valid (not `projects go 1 sth`)
+  parseInt(currentCommand[2]) > 0; // arg last part is a valid (positive) id
 
 /**
  * Check current render makes redirect for theme
@@ -143,14 +143,21 @@ export const argTab = (
   // 8) if input is 'projects go '
   else if (_.startsWith(inputVal, "projects go ")) {
     [
-      "1.CyberGenie",
-      "2.XSSProbe",
-      "3.ShieldSurf",
-      "4.MailGuard",
-      "5.KnightSpy",
-      "6.GitHub ReadMe Maker",
-      "7.CodeXPlain",
-      "8.SnapCode",
+      "1.DataHaq",
+      "2.IP Geo",
+      "3.JSProbeX",
+      "4.HoneyPot",
+      "5.CryptX",
+      "6.XSSProbe",
+      "7.ShieldSurf",
+      "8.MailGuard",
+      "9.GitHub ReadMe Maker",
+      "10.ElecTrip",
+      "11.Dr.Plants",
+      "12.CyberGenie",
+      "13.KnightSpy",
+      "14.CodeXPlain",
+      "15.SnapCode",
     ].forEach(t => {
       hintsCmds = [...hintsCmds, t];
     });

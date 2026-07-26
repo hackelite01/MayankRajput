@@ -8,7 +8,7 @@ export const HeroContainer = styled.div`
     margin-bottom: 1.5rem;
   }
 
-  div {
+  > div {
     @media (min-width: 1024px) {
       flex-basis: 50%;
     }
@@ -18,6 +18,9 @@ export const HeroContainer = styled.div`
 export const PreName = styled.pre`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors?.primary};
+  font-size: 0.8rem;
+  line-height: 1.05;
 
   @media (max-width: 550px) {
     display: none;
@@ -31,6 +34,9 @@ export const PreWrapper = styled.div`
 export const PreNameMobile = styled.pre`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors?.primary};
+  font-size: 1rem;
+  line-height: 1.1;
 
   @media (min-width: 550px) {
     display: none;
@@ -38,7 +44,13 @@ export const PreNameMobile = styled.pre`
 `;
 
 export const PreImg = styled.pre`
-  @media (max-width: 550px) {
+  color: ${({ theme }) => theme.colors?.primary};
+  font-size: 0.4rem;
+  line-height: 1;
+  letter-spacing: 0;
+  margin-top: 0.5rem;
+
+  @media (max-width: 768px) {
     display: none;
   }
 `;

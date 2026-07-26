@@ -1,10 +1,31 @@
 import { ExpIntro, ExpList } from "../styles/Experience.styled";
 import { Wrapper } from "../styles/Output.styled";
 
+/* ===== career start: IBM internship, Aug 2023 (month is 0-indexed) ===== */
+const CAREER_START = new Date(2023, 7, 1);
+
+const getTotalExperience = (): string => {
+  const now = new Date();
+  const months = Math.max(
+    0,
+    (now.getFullYear() - CAREER_START.getFullYear()) * 12 +
+      (now.getMonth() - CAREER_START.getMonth())
+  );
+  const years = Math.floor(months / 12);
+  const remMonths = months % 12;
+
+  if (years === 0) return `${remMonths} mo`;
+  if (remMonths === 0) return `${years} yr${years > 1 ? "s" : ""}`;
+  return `${years} yr${years > 1 ? "s" : ""} ${remMonths} mo`;
+};
+
 const Experience: React.FC = () => {
   return (
     <Wrapper data-testid="experience">
-      <ExpIntro>Here is my professional experience!</ExpIntro>
+      <ExpIntro>
+        Here is my professional experience!{" "}
+        <span className="total">({getTotalExperience()} total)</span>
+      </ExpIntro>
       {expBg.map(({ title, period, desc }) => (
         <ExpList key={title}>
           <div className="title">{title}</div>
@@ -18,9 +39,14 @@ const Experience: React.FC = () => {
 
 const expBg = [
   {
+    title: "SOC Engineer, Forensic CyberTech Pvt. Ltd.",
+    period: "Jan 2025 to Present",
+    desc: "Developed an end-to-end multi-tenant SOC platform with scalable security data pipelines and detection frameworks; led 9 production-grade cybersecurity projects focused on threat detection and incident response. Managed cross-functional teams and client onboarding, leading solution architecture, project delivery, and technology evaluations to enhance SOC efficiency through standardized processes and automation."
+  },
+  {
     title: "Sub-Coordinator & Ex. Tech Head, E-Cell SIT",
-    period: "Sep 2023 to Present (Tech Head until July 2024)",
-    desc: "Leading operations and tech teams, driving strategies for entrepreneurship and innovation. Led tech solutions to streamline operations, fulfilled cell-wide tech requirements, optimized digital platforms, and organized tech-driven events."
+    period: "Sep 2023 to March 2025 (Tech Head until July 2024)",
+    desc: "Led operations and technology teams, driving entrepreneurship and innovation initiatives across the organization. Developed and implemented technology solutions to streamline operations, optimize digital platforms, fulfill organizational technology needs, and support technology-driven events."
   },
   {
     title: "SURE Trust Training + Internship",

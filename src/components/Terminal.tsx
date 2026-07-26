@@ -29,7 +29,11 @@ type Command = {
 export const commands: Command = [
   { cmd: "about", desc: "about Mayank Rajput", tab: 8 },
   { cmd: "achievements", desc: "my achievements", tab: 2 },
+  { cmd: "affiliations", desc: "positions of responsibility", tab: 2 },
+  { cmd: "certs", desc: "my certifications", tab: 8 },
   { cmd: "clear", desc: "clear the terminal", tab: 8 },
+  { cmd: "cmatrix", desc: "enter the matrix", tab: 6 },
+  { cmd: "contact", desc: "how to reach me", tab: 6 },
   { cmd: "echo", desc: "print out anything", tab: 9 },
   { cmd: "education", desc: "my education background", tab: 4 },
   { cmd: "experience", desc: "my experience", tab: 3 },
@@ -37,12 +41,24 @@ export const commands: Command = [
   { cmd: "gui", desc: "go to my portfolio in GUI", tab: 10 },
   { cmd: "help", desc: "check available commands", tab: 9 },
   { cmd: "history", desc: "view command history", tab: 6 },
+  { cmd: "industry", desc: "my industry / SOC platform projects", tab: 5 },
+  { cmd: "neofetch", desc: "display system info card", tab: 5 },
   { cmd: "projects", desc: "view projects that I've developed", tab: 5 },
   { cmd: "pwd", desc: "print current working directory", tab: 10 },
+  { cmd: "skills", desc: "my technical skills", tab: 7 },
   { cmd: "socials", desc: "check out my social accounts", tab: 6 },
   { cmd: "themes", desc: "check available themes", tab: 7 },
   { cmd: "welcome", desc: "display hero section", tab: 6 },
   { cmd: "whoami", desc: "about current user", tab: 7 },
+];
+
+/* ===== hidden easter-egg commands (not shown in `help`) ===== */
+export const secretCommands: Command = [
+  { cmd: "sudo", desc: "", tab: 0 },
+  { cmd: "ls", desc: "", tab: 0 },
+  { cmd: "cd", desc: "", tab: 0 },
+  { cmd: "cat", desc: "", tab: 0 },
+  { cmd: "rm", desc: "", tab: 0 },
 ];
 
 type Term = {
@@ -212,7 +228,9 @@ const Terminal = () => {
 
       {cmdHistory.map((cmdH, index) => {
         const commandArray = _.split(_.trim(cmdH), " ");
-        const validCommand = _.find(commands, { cmd: commandArray[0] });
+        const validCommand = _.find([...commands, ...secretCommands], {
+          cmd: commandArray[0],
+        });
         const contextValue = {
           arg: _.drop(commandArray),
           history: cmdHistory,
