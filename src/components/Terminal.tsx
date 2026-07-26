@@ -18,7 +18,7 @@ import {
   MobileSpan,
   Wrapper,
 } from "./styles/Terminal.styled";
-import { argTab } from "../utils/funcs";
+import { argTab, getSuggestion } from "../utils/funcs";
 
 type Command = {
   cmd: string;
@@ -255,6 +255,18 @@ const Terminal = () => {
             ) : (
               <CmdNotFound data-testid={`not-found-${index}`}>
                 command not found: {cmdH}
+                {(() => {
+                  const suggestion = getSuggestion(
+                    commandArray[0],
+                    commands.map(({ cmd }) => cmd)
+                  );
+                  return suggestion ? (
+                    <>
+                      <br />
+                      did you mean `{suggestion}`?
+                    </>
+                  ) : null;
+                })()}
               </CmdNotFound>
             )}
           </div>

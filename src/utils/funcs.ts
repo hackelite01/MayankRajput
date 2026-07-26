@@ -2,6 +2,52 @@ import _ from "lodash";
 import theme from "../components/styles/themes";
 
 /**
+ * Levenshtein edit distance between two strings
+ * @param {string} a
+ * @param {string} b
+ * @returns {number} distance
+ */
+export const levenshtein = (a: string, b: string): number => {
+  const m = a.length;
+  const n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  const prev = Array.from({ length: n + 1 }, (_v, i) => i);
+  const curr = new Array(n + 1).fill(0);
+  for (let i = 1; i <= m; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+    }
+    for (let j = 0; j <= n; j++) prev[j] = curr[j];
+  }
+  return prev[n];
+};
+
+/**
+ * Suggest the closest known command to a mistyped input
+ * @param {string} input - the (first word of the) mistyped command
+ * @param {string[]} cmds - available command names
+ * @returns {string | null} closest command within threshold, else null
+ */
+export const getSuggestion = (input: string, cmds: string[]): string | null => {
+  if (!input) return null;
+  let best: string | null = null;
+  let bestDist = Infinity;
+  cmds.forEach(cmd => {
+    const d = levenshtein(input.toLowerCase(), cmd.toLowerCase());
+    if (d < bestDist) {
+      bestDist = d;
+      best = cmd;
+    }
+  });
+  // only suggest when reasonably close (≤ ~40% of the command length, min 2)
+  const threshold = best ? Math.max(2, Math.ceil(best.length * 0.4)) : 0;
+  return bestDist <= threshold ? best : null;
+};
+
+/**
  * Generates html tabs
  * @param {number} num - The number of tabs
  * @returns {string} tabs - Tab string

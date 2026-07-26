@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Cmd,
   HeroContainer,
@@ -8,10 +9,19 @@ import {
   Seperator,
 } from "../styles/Welcome.styled";
 
+/* play the boot reveal only once per session (survives re-mounts) */
+let hasBooted = false;
+
 const Welcome: React.FC = () => {
+  const [boot] = useState(!hasBooted);
+
+  useEffect(() => {
+    hasBooted = true;
+  }, []);
+
   return (
     <HeroContainer data-testid="welcome">
-      <div className="info-section">
+      <div className={`info-section${boot ? " boot" : ""}`}>
         <PreName>
 {`███╗   ███╗ █████╗ ██╗   ██╗ █████╗ ███╗   ██╗██╗  ██╗
 ████╗ ████║██╔══██╗╚██╗ ██╔╝██╔══██╗████╗  ██║██║ ██╔╝

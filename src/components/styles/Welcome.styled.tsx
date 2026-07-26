@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const reveal = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const HeroContainer = styled.div`
   display: flex;
@@ -12,6 +23,33 @@ export const HeroContainer = styled.div`
     @media (min-width: 1024px) {
       flex-basis: 50%;
     }
+  }
+
+  /* one-time boot reveal: stagger the info-section children */
+  .info-section.boot > * {
+    opacity: 0;
+    animation: ${reveal} 0.45s ease forwards;
+  }
+  .info-section.boot > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .info-section.boot > *:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .info-section.boot > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .info-section.boot > *:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .info-section.boot > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .info-section.boot > *:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+  .info-section.boot > *:nth-child(7) {
+    animation-delay: 0.7s;
   }
 `;
 
