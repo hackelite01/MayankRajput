@@ -35,13 +35,13 @@ export const getSuggestion = (input: string, cmds: string[]): string | null => {
   if (!input) return null;
   let best: string | null = null;
   let bestDist = Infinity;
-  cmds.forEach(cmd => {
+  for (const cmd of cmds) {
     const d = levenshtein(input.toLowerCase(), cmd.toLowerCase());
     if (d < bestDist) {
       bestDist = d;
       best = cmd;
     }
-  });
+  }
   // only suggest when reasonably close (≤ ~40% of the command length, min 2)
   const threshold = best ? Math.max(2, Math.ceil(best.length * 0.4)) : 0;
   return bestDist <= threshold ? best : null;
